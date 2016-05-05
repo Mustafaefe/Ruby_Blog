@@ -1,0 +1,16 @@
+<h1>Tüm Gönderiler</h1> 
+  
+<table> 
+  <tr> 
+    <th>Gönderici</th>
+    <th>Gönderi</th> 
+  </tr>
+ 
+  <% @posts.each do |post| %> 
+    <tr>
+      <td><%= post.title %></td> 
+      <td><%= post.text %></td>
+    </tr> 
+  <% end %> 
+</table>
+
