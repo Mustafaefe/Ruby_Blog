@@ -12,6 +12,9 @@
       <td><%= post.text %></td>
       <td><%= link_to "Göster", post %><td>
       <td><%= link_to "Düzenle", edit_post_path(post) %><td>
+      <td><%= link_to 'Sil', post_path(post),
+              method: :delete,
+              data: { confirm: 'Silmek istediğinizden emin misiniz?' } %></td>
     </tr> 
   <% end %> 
 </table>
