@@ -5,4 +5,5 @@
 <p>
   <strong>Gönderi:</strong> 
   <%= @post.text %></p>
-
+<%= link_to 'Geri', posts_path %> | 
+<%= link_to "Düzenle", edit_post_path(@post)%>
