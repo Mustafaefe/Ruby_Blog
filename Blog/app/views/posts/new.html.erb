@@ -1,5 +1,41 @@
-<h1>Yeni Gönderi Sayfası</h1><p>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
 
-<%= render 'form' %>
- 
+body.b{
+    background-color: rgba(18,89,199,0.2);
+    padding: 50px;
+}
+
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: black;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;  
+    width: 5.5%;
+    padding: 14px 20px;
+}
+
+a:hover, a:active {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body class="b">
+
+
+<h1>Yeni Gönderi Sayfası</h1>
+
+<%= render 'form' %> 
+
+<p class="floating-box">
 <%= link_to 'Back', posts_path %>
+</p>
+
+
+</body>
+</html>

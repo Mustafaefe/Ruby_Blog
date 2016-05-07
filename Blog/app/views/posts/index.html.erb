@@ -1,21 +1,94 @@
-<h1>Tüm Gönderiler</h1> 
-  
-<table> 
-  <tr> 
-    <th>Gönderici</th>
-    <th>Gönderi</th> 
-  </tr>
- 
-  <% @posts.each do |post| %> 
-    <tr>
-      <td><%= post.title %></td> 
-      <td><%= post.text %></td>
-      <td><%= link_to "Göster", post %><td>
-      <td><%= link_to "Düzenle", edit_post_path(post) %><td>
-      <td><%= link_to 'Sil', post_path(post),
-              method: :delete,
-              data: { confirm: 'Silmek istediğinizden emin misiniz?' } %></td>
-    </tr> 
-  <% end %> 
-</table>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
 
+body.b{
+  background-color: rgba(18,89,199,0.2);
+}
+
+p.c{
+  margin-left: 20px;
+}
+
+div.post_genel {
+    background-color: orange;
+    color: black;
+    height: 110px;
+    margin: 20px;
+    margin-bottom: 50px;
+    padding: 30px;   
+    padding-top: 10px;
+    border-radius: 10px 10px 10px 10px; 
+
+}
+
+p{
+  overflow: hidden; /* taşanları gizle */
+  white-space: nowrap; /* alt satıra hiç inme */
+  text-overflow: ellipsis;
+}
+
+div.post{
+  color: black;
+  padding-right: 20px;
+  margin-bottom: 5px;
+       
+}
+
+div.link{
+  background-color: orange;
+  width: 450px;
+  height: 30px;  
+  padding: 20px;
+  word-wrap:break-word;
+  text-align: center;
+  border-radius: 10px 10px 50px 40px;
+}
+
+a:link, a:visited {
+    background-color: #f44300;
+    color: white;
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;  
+
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+</head>
+
+<body class="b">
+    
+    <center>
+        <h1>Tüm Gönderiler</h1> 
+    </center>
+    <p class="c"><%= link_to "Yeni Gönderi", new_post_path %></p>
+    <% @posts.each do |post| %> 
+    <div class="post_genel">
+   
+        <div class="post">
+          <h3><%= post.title %></h3> 
+          <p class="d"><%= post.text %></p>
+        </div>
+   
+        <div class="link">
+          <%= link_to "Göster", post %>
+          <%= link_to "Düzenle", edit_post_path(post) %>
+          <%= link_to 'Sil', post_path(post),
+              method: :delete,
+              data: { confirm: 'Silmek istediğinizden emin misiniz?' } %>
+          <%= link_to "Yorum Yap", new_post_comment_path(post) %>
+        </div>
+
+  </div>   
+  <% end %> 
+  
+</body>
+</html>

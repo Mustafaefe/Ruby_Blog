@@ -1,6 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body.b{
+    background-color: rgba(18,89,199,0.2);
+    padding: 50px;
+}
+
+.color_red{
+  color: red;
+  margin: 80px;
+
+}
+
+input[type=text], select{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+ textarea {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+input[type=submit] {
+    width: 8%;
+    background-color: #4CAF50;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body class="b">
+
 <%= form_for @post do |f| %>
   <% if @post.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation" class="color_red">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited
       this post from being saved:</h2>
     <ul>
@@ -11,12 +68,12 @@
   </div>
   <% end %>
   <p>
-    <%= f.label :title %><br>
+    <%= f.label :Başlık %><br>
     <%= f.text_field :title %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
+    <%= f.label :Gönderi %><br>
     <%= f.text_area :text %>
   </p>
  
@@ -24,3 +81,8 @@
     <%= f.submit :Gönder %>
   </p>
 <% end %>
+
+</body>
+</html> 
+
+

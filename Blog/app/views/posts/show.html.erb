@@ -1,9 +1,120 @@
-<p>
-  <strong>Gönderici Adı:</strong> 
-<%= @post.title %></p>
- 
-<p>
-  <strong>Gönderi:</strong> 
-  <%= @post.text %></p>
-<%= link_to 'Geri', posts_path %> | 
-<%= link_to "Düzenle", edit_post_path(@post)%>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body.b{
+  background-color: rgba(18,89,199,0.2);
+}
+
+div.post_cerceve {
+    background-color: rgba(18,89,199,1);
+    color: black;
+    margin: 50px;
+    margin-bottom: 80px;
+    margin-top: 30px;
+    height: 200px;
+    width:  1020px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-radius: 10px 10px 10px 10px;  
+    word-wrap:break-word;
+}
+
+div.post_text {
+    color: black;
+    word-wrap:break-word;
+    height: 90px;
+    overflow: auto;
+}
+
+div.link{
+  background-color: rgba(18,89,199,1);
+  border-radius: 10px 10px 10px 10px;
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  border-radius: 10px 10px 30px 30px;
+
+}
+
+div.comment_cerceve {
+    background-color: rgba(18,89,199,0.7);
+    color:black;
+    padding:20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    height: 700px;
+    width:  1000px;
+    overflow: auto;
+    border-radius: 10px 10px 10px 10px; 
+}
+
+div.comment{
+    background-color: orange;
+    border-radius: 5px 20px 20px 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    word-wrap:break-word;
+    overflow: auto;
+}
+
+h3.far{
+  margin-left: 500px;
+  margin-top: 50px;
+}
+
+a:link, a:visited {
+    background-color: orange;
+    color: black;
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;  
+
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+</head>
+<body class="b">
+  <div class="post_cerceve">
+
+    <h2>  <%= @post.title %></h2>
+    <div class="post_text">
+      <p><%= @post.text %></p>
+    </div>
+    <br/>
+    
+  
+
+  <div class="link">
+     
+      <%= link_to 'Geri', posts_path %> 
+      <%= link_to "Düzenle", edit_post_path(@post)%> 
+      <%= link_to 'Yeni yorum ekle', new_post_comment_path(@post)%>
+     
+  </div>
+</div>
+  
+  <div class="comment_cerceve">
+    
+      <% if @post.comment.empty? %>
+        <p>No comments</p>
+      <% else %> 
+          <% for comment in @post.comment %>
+              <div class="comment">
+                <em><b><%= comment.email %> </b></em>
+                <p> <%= comment.comment %> </p>
+              </div>
+          <% end %>
+      <% end %>
+  </div>
+  
+</body>
+</html>

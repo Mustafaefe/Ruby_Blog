@@ -1,4 +1,56 @@
-<h1> HOŞGELDİNİZ <h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	
+		div.cerceve{
 
-<h4><%= link_to "Tüm Gönderiler", controller: "posts" %><h4>
-<h4><%= link_to "Yeni Gönderi", new_post_path %>
+		}
+
+		p{
+				
+		}
+
+		body.b{
+  			background-color: rgba(18,89,199,0.2);
+		}
+		
+		.font{
+			font-family: "Times New Roman";
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+
+		a:link, a:visited {
+		    background-color: orange;
+		    color: white;
+		    padding: 10px 20px;
+		    text-align: center; 
+		    text-decoration: none;
+		    display: inline-block;
+		    border-radius: 10px 10px 10px 10px;  
+
+		}
+
+
+		a:hover, a:active {
+		    background-color: red;
+		}
+
+	</style>
+</head>
+<body class="b">
+	<div class="cerceve">
+		<center>
+			<h1 class="font"> BLOG SİTESİNE HOŞGELDİNİZ </h1>
+		
+
+		<br/><br/>
+
+		<p><%= link_to "Tüm Gönderileri Görmek için Tıklayın .. ", controller: "posts" %> </p>    
+		<p>				 <%= link_to "Yeni Gönderi için Tıklayın ..", new_post_path %></p>
+		</center>
+	</div>
+</body>
+</html> 
+
