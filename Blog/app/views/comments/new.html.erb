@@ -74,7 +74,16 @@ a:hover, a:active {
 <h2> '<%= @post.title %>' Gönderisi için Yeni Yorum Ekle</h2>
 
 <%= form_for [@post, @comment] do |form| %>
-
+  <% if @comment.errors.any? %>
+  <div id="error_explanation" class="color_red">
+    <h2><%= pluralize(@comment.errors.count, "hata") %> form kaydedilirken hata yakalandı</h2>
+    <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
   <div>
     <%= form.label :email %><br>
     <%= form.text_field :email %>
