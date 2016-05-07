@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body.b{
+    background-color: rgba(18,89,199,0.2);
+    padding: 50px;
+}
+
+.color_red{
+  color: red;
+  margin: 80px;
+
+}
+
+input[type=text], select{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+ textarea {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+input[type=submit] {
+    width: 8%;
+    background-color: #4CAF50;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: black;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;  
+    width: 5.5%;
+    padding: 14px 20px;
+}
+
+a:hover, a:active {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body class="b">
+
+<h2> '<%= @post.title %>' Gönderisi için Yeni Yorum Ekle</h2>
+
+<%= form_for [@post, @comment] do |form| %>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </div>
+  <br/>
+  <%= form.submit 'Gönder' %>   <%= link_to 'İptal', @post %>
+<% end %>
+
+</body>
+</html>
+
